@@ -178,7 +178,7 @@ def processMasksandBoxes(boxes, masks, color_image):
 
             cv2.putText(color_image, f"Distance: {distance_inches:.3f} in", bottom, font, fontScale, color, thickness)
             cv2.putText(color_image, f"Distance: {distance:.3f} mm", bbottom, font, fontScale, color, thickness)
-            cv2.putText(color_image, f"Process Masks", [200, 300], font, fontScale, color, 4)
+            cv2.putText(color_image, f"Process Masks", [200, 450], font, fontScale, color, 4)
 def processboxes(boxes, color_image):
     for box in boxes:
 
