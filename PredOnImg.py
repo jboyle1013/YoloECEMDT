@@ -4,7 +4,7 @@ from PIL import Image
 from ultralytics import YOLO
 
 # Load a pretrained YOLOv8n model
-model = YOLO("runs/detect/train43/weights/best.pt")
+model = YOLO("segtrain2/weights/best.pt")
 
 # object classes
 classNames = ['SmallBox', 'Rocket', 'BigBox', 'Nozzle']
@@ -17,4 +17,4 @@ for _, image in enumerate(os.listdir("images")):
         im_array = r.plot()  # plot a BGR numpy array of predictions
         im = Image.fromarray(im_array[..., ::-1])  # RGB PIL image
         im.show()  # show image
-        im.save(f'testres/results{_+1}.jpg')  # save image
+        im.save(f'segtrain2/res/results{_+1}.jpg')  # save image
