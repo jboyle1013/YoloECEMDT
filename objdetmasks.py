@@ -288,7 +288,7 @@ if __name__ == "__main__":
     dc = DepthCamera()
 
     # Leave Space here to Configure Settings
-    dc.set_Settings_from_json('camerasettings/test.json')
+    dc.set_Settings_from_json('camerasettings/settings1.json')
     # Start Camera
     print("[INFO] starting video stream...")
     dc.start_Streaming()
@@ -296,13 +296,17 @@ if __name__ == "__main__":
     cv2.namedWindow("Color frame")
 
     while True:
-        ret, depth_image, color_frame, depth_colormap, depth_frame = dc.get_frame()
+        ret, depth_frame, color_frame, depth_colormap, depth_image = dc.get_frame()
 
-        get_vals(depth_image, color_frame, depth_frame)
+        get_vals(depth_frame, color_frame, depth_image)
         # Show distance for a specific point
 
-        cv2.imshow("depth frame", depth_colormap)
-        cv2.imshow("Color frame", color_frame)
+        cv2.namedWindow('Depth Color Frame', cv2.WINDOW_AUTOSIZE)
+        cv2.namedWindow('Depth Frame', cv2.WINDOW_AUTOSIZE)
+        cv2.namedWindow('Color Frame', cv2.WINDOW_AUTOSIZE)
+        cv2.imshow("Depth Color Frame", depth_colormap)
+        cv2.imshow("Depth Frame", depth_frame)
+        cv2.imshow("Color Frame", color_frame)
         key = cv2.waitKey(1)
         if key == 27:
             break

@@ -7,7 +7,7 @@ import numpy as np
 # The Camera is set on top of its box and is currently 2.5 in or approximately 65mm (63.5 mm) above the table
 
 # Configure Yolo Model
-model = YOLO("segtrain2/weights/best.pt")
+model = YOLO("train2/weights/best.pt")
 
 # object classes
 classNames = ['BigBox', 'Nozzle', 'Rocket', 'SmallBox']
@@ -183,7 +183,7 @@ if __name__ == "__main__":
     dc = DepthCamera()
 
     # Leave Space here to Configure Settings
-    dc.set_Settings_from_json('camerasettings/test.json')
+    dc.set_Settings_from_json('camerasettings/settings1.json')
     # Start Camera
     print("[INFO] starting video stream...")
     dc.start_Streaming()
@@ -193,7 +193,7 @@ if __name__ == "__main__":
     while True:
         ret, depth_image, color_frame, depth_colormap, depth_frame = dc.get_frame()
 
-        get_vals(depth_image, color_frame, depth_frame)
+        #get_vals(depth_image, color_frame, depth_frame)
         # Show distance for a specific point
 
         cv2.imshow("depth frame", depth_colormap)

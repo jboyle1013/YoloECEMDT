@@ -4,7 +4,7 @@ import open3d as o3d
 import cv2
 import pyrealsense2 as rs
 import numpy as np
-from pyrealsense2 import colorizer
+
 
 DS5_product_ids = ["0AD1", "0AD2", "0AD3", "0AD4", "0AD5", "0AF6", "0AFE", "0AFF", "0B00", "0B01", "0B03", "0B07", "0B3A", "0B5C"]
 
@@ -46,15 +46,20 @@ class DepthCamera:
     def start_Streaming(self):
         # Start streaming
         self.profile = self.pipeline.start(self.config)
-
         self.depth_sensor = self.profile.get_device().first_depth_sensor()
-        # self.depth_sensor.set_option(rs.option.visual_preset, 2)
+        self.depth_sensor.set_option(rs.option.visual_preset, 3)
+        # Configure Stream Settings
+        self.colorizer.set_option(rs.option.visual_preset, 2)
+        self.colorizer.set_option(rs.option.histogram_equalization_enabled, 1.0)
+
+        self.colorizer.set_option(rs.option.color_scheme, 0.0)
         #
         # # Set min and max depth distance (in meters)
-        # min_distance = 0.0  # Example: 0.3 meters
-        # max_distance = 2.0  # Example: 2.0 meters
-        # self.depth_sensor.set_option(rs.option.min_distance, min_distance)
-        # self.depth_sensor.set_option(rs.option.max_distance, max_distance)
+        min_distance = 0.0
+        max_distance = 1.0
+        self.colorizer.set_option(rs.option.min_distance, min_distance)
+        self.colorizer.set_option(rs.option.max_distance, max_distance)
+
 
     def configure_frame(self):
         # Get stream profile and camera intrinsics
@@ -79,7 +84,8 @@ class DepthCamera:
         depth_frame = self.apply_Filters(depth_frame)
         depth_image = np.asanyarray(depth_frame.get_data())
         color_image = np.asanyarray(color_frame.get_data())
-        depth_colormap = cv2.applyColorMap(cv2.convertScaleAbs(depth_image, alpha=0.03), cv2.COLORMAP_JET)
+        depth_colorframe = self.colorizer.colorize(depth_frame)
+        depth_colormap = np.asanyarray(depth_colorframe.get_data())
 
         if not depth_frame or not color_frame:
             return False, None, None
@@ -99,8 +105,7 @@ class DepthCamera:
         pc = rs.pointcloud()
         points = pc.calculate(depth_frame)
         vtx = np.asanyarray(points.get_vertices())
-        self.pccolors = self.create_height_based_colors(pc)
-        self.visualize_point_cloud_with_colors(pc, self.pccolors)
+
         return pc, vtx
 
     def create_height_based_colors(self, point_cloud):
@@ -131,15 +136,15 @@ class DepthCamera:
             points_3d: A numpy array of 3D points.
             colors: A numpy array of RGB colors.
         """
-            # Create an Open3D PointCloud object
-            point_cloud = o3d.geometry.PointCloud()
+        # Create an Open3D PointCloud object
+        point_cloud = o3d.geometry.PointCloud()
 
-            # Convert numpy array to Open3D format
-            point_cloud.points = o3d.utility.Vector3dVector(points_3d)
-            point_cloud.colors = o3d.utility.Vector3dVector(colors)
+        # Convert numpy array to Open3D format
+        point_cloud.points = o3d.utility.Vector3dVector(points_3d)
+        point_cloud.colors = o3d.utility.Vector3dVector(colors)
 
-            # Visualize the point cloud
-            o3d.visualization.draw_geometries([point_cloud])
+        # Visualize the point cloud
+        o3d.visualization.draw_geometries([point_cloud])
 
     def get_3d_coordinates_masks(self, depth_frame, mask):
         """
@@ -165,8 +170,10 @@ class DepthCamera:
                     if idx < len(self.vtx):
                         point_3d = self.vtx[idx]
                         points_3d.append([point_3d[0], point_3d[1], point_3d[2]])
-
-        return np.array(points_3d)
+        d3points = np.array(points_3d)
+        self.pccolors = self.create_height_based_colors(d3points)
+        self.visualize_point_cloud_with_colors(d3points, self.pccolors)
+        return d3points
 
     def get_3d_coordinates(self, depth_frame, bbox):
         """
@@ -246,6 +253,8 @@ class DepthCamera:
                     print("Found device that supports advanced mode:", dev.get_info(rs.camera_info.name))
                 return dev
         raise Exception("No D400 product line device that supports advanced mode was found")
+
+
     def get_Settings(self):
 
         dev = self.find_advanced_mode()
