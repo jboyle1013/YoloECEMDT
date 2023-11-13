@@ -1,6 +1,6 @@
 import json
 import math
-
+import open3d as o3d
 import cv2
 import pyrealsense2 as rs
 import numpy as np
@@ -38,7 +38,7 @@ class DepthCamera:
         self.temporal_filter = rs.temporal_filter()
         # Create a colorizer object
         self.colorizer = rs.colorizer()
-
+        self.pccolors = None
         # Enable histogram equalization
         self.colorizer.set_option(rs.option.histogram_equalization_enabled, 1)
 
@@ -99,8 +99,47 @@ class DepthCamera:
         pc = rs.pointcloud()
         points = pc.calculate(depth_frame)
         vtx = np.asanyarray(points.get_vertices())
+        self.pccolors = self.create_height_based_colors(pc)
+        self.visualize_point_cloud_with_colors(pc, self.pccolors)
         return pc, vtx
 
+    def create_height_based_colors(self, point_cloud):
+        """
+        Create a color array for a point cloud based on the Z coordinate.
+
+        Parameters:
+            point_cloud: A numpy array of 3D points.
+
+        Returns:
+            A numpy array of RGB colors with values between 0 and 1.
+        """
+        # Normalize Z values to a range of 0 to 1
+        min_z = np.min(point_cloud[:, 2])
+        max_z = np.max(point_cloud[:, 2])
+        normalized_z = (point_cloud[:, 2] - min_z) / (max_z - min_z)
+
+        # Create a gradient from blue to red based on the Z value
+        colors = np.zeros((len(point_cloud), 3))
+        colors[:, 0] = normalized_z  # Red channel
+        colors[:, 2] = 1 - normalized_z  # Blue channel
+        return colors
+    def visualize_point_cloud_with_colors(self, points_3d, colors):
+        """
+        Visualizes the point cloud with colors.
+
+        Parameters:
+            points_3d: A numpy array of 3D points.
+            colors: A numpy array of RGB colors.
+        """
+            # Create an Open3D PointCloud object
+            point_cloud = o3d.geometry.PointCloud()
+
+            # Convert numpy array to Open3D format
+            point_cloud.points = o3d.utility.Vector3dVector(points_3d)
+            point_cloud.colors = o3d.utility.Vector3dVector(colors)
+
+            # Visualize the point cloud
+            o3d.visualization.draw_geometries([point_cloud])
 
     def get_3d_coordinates_masks(self, depth_frame, mask):
         """
