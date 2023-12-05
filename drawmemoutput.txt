@@ -1,0 +1,52 @@
+Fra:43 Mem:14.86M (Peak 14.86M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | OriginalScene, View Layer | Synchronizing object | Plane
+Fra:43 Mem:14.86M (Peak 14.86M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | OriginalScene, View Layer | Synchronizing object | Nozzle.001
+Fra:43 Mem:14.90M (Peak 14.90M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | OriginalScene, View Layer | Synchronizing object | SmallBox
+Fra:43 Mem:14.92M (Peak 14.92M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | OriginalScene, View Layer | Synchronizing object | StartZone
+Fra:43 Mem:15.01M (Peak 15.01M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | OriginalScene, View Layer | Synchronizing object | YellowLine
+Fra:43 Mem:15.03M (Peak 15.03M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | OriginalScene, View Layer | Synchronizing object | BlueZone
+Fra:43 Mem:15.13M (Peak 15.13M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | OriginalScene, View Layer | Synchronizing object | RedZone
+Fra:43 Mem:15.50M (Peak 15.50M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | OriginalScene, View Layer | Initializing
+Fra:43 Mem:14.20M (Peak 15.50M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | OriginalScene, View Layer | Waiting for render to start
+Fra:43 Mem:14.20M (Peak 15.50M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | OriginalScene, View Layer | Loading render kernels (may take a few minutes the first time)
+Fra:43 Mem:14.20M (Peak 15.50M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | OriginalScene, View Layer | Updating Scene
+Fra:43 Mem:14.20M (Peak 15.50M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | OriginalScene, View Layer | Updating Shaders
+Fra:43 Mem:14.29M (Peak 15.50M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | OriginalScene, View Layer | Updating Procedurals
+Fra:43 Mem:14.29M (Peak 15.50M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | OriginalScene, View Layer | Updating Background
+Fra:43 Mem:14.29M (Peak 15.50M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | OriginalScene, View Layer | Updating Camera
+Fra:43 Mem:14.29M (Peak 15.50M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | OriginalScene, View Layer | Updating Meshes Flags
+Fra:43 Mem:14.29M (Peak 15.50M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | OriginalScene, View Layer | Updating Objects
+Fra:43 Mem:14.29M (Peak 15.50M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | OriginalScene, View Layer | Updating Objects | Copying Transformations to device
+Fra:43 Mem:14.29M (Peak 15.50M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | OriginalScene, View Layer | Updating Objects | Applying Static Transformations
+Fra:43 Mem:14.29M (Peak 15.50M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | OriginalScene, View Layer | Updating Particle Systems
+Fra:43 Mem:14.29M (Peak 15.50M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | OriginalScene, View Layer | Updating Particle Systems | Copying Particles to device
+Fra:43 Mem:14.29M (Peak 15.50M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | OriginalScene, View Layer | Updating Meshes
+Fra:43 Mem:14.54M (Peak 15.50M) | Time:00:00.00 | Mem:0.01M, Peak:0.01M | OriginalScene, View Layer | Updating Mesh | Computing attributes
+Fra:43 Mem:14.64M (Peak 15.50M) | Time:00:00.00 | Mem:0.02M, Peak:0.02M | OriginalScene, View Layer | Updating Mesh | Copying Attributes to device
+Fra:43 Mem:14.64M (Peak 15.50M) | Time:00:00.00 | Mem:0.11M, Peak:0.11M | OriginalScene, View Layer | Updating Geometry BVH StartZone 2/2 | Building BVH
+Fra:43 Mem:14.64M (Peak 15.50M) | Time:00:00.00 | Mem:0.11M, Peak:0.11M | OriginalScene, View Layer | Updating Geometry BVH Plane 1/2 | Building BVH
+Fra:43 Mem:14.64M (Peak 15.50M) | Time:00:00.00 | Mem:0.11M, Peak:0.11M | OriginalScene, View Layer | Updating Scene BVH | Building
+Fra:43 Mem:14.64M (Peak 15.50M) | Time:00:00.00 | Mem:0.11M, Peak:0.11M | OriginalScene, View Layer | Updating Scene BVH | Building BVH
+Fra:43 Mem:14.64M (Peak 15.50M) | Time:00:00.01 | Mem:1.21M, Peak:1.71M | OriginalScene, View Layer | Updating Scene BVH | Copying BVH to device
+Fra:43 Mem:14.64M (Peak 15.50M) | Time:00:00.01 | Mem:1.21M, Peak:1.71M | OriginalScene, View Layer | Updating Mesh | Computing normals
+Fra:43 Mem:15.20M (Peak 15.50M) | Time:00:00.01 | Mem:1.21M, Peak:1.71M | OriginalScene, View Layer | Updating Mesh | Copying Mesh to device
+Fra:43 Mem:15.20M (Peak 15.50M) | Time:00:00.01 | Mem:1.77M, Peak:1.77M | OriginalScene, View Layer | Updating Objects Flags
+Fra:43 Mem:15.20M (Peak 15.50M) | Time:00:00.01 | Mem:1.77M, Peak:1.77M | OriginalScene, View Layer | Updating Primitive Offsets
+Fra:43 Mem:15.20M (Peak 15.50M) | Time:00:00.01 | Mem:1.77M, Peak:1.77M | OriginalScene, View Layer | Updating Images
+Fra:43 Mem:15.20M (Peak 15.50M) | Time:00:00.01 | Mem:1.77M, Peak:1.77M | OriginalScene, View Layer | Updating Images | Loading table.jpg
+Fra:43 Mem:17.23M (Peak 17.23M) | Time:00:00.01 | Mem:1.77M, Peak:1.77M | OriginalScene, View Layer | Updating Images | Loading wooden_lounge_4k.exr
+Fra:43 Mem:145.24M (Peak 145.24M) | Time:00:00.10 | Mem:131.80M, Peak:131.80M | OriginalScene, View Layer | Updating Camera Volume
+Fra:43 Mem:145.24M (Peak 145.24M) | Time:00:00.10 | Mem:131.80M, Peak:131.80M | OriginalScene, View Layer | Updating Lookup Tables
+Fra:43 Mem:145.24M (Peak 145.24M) | Time:00:00.10 | Mem:131.88M, Peak:131.88M | OriginalScene, View Layer | Updating Lights
+Fra:43 Mem:145.24M (Peak 145.24M) | Time:00:00.10 | Mem:131.88M, Peak:131.88M | OriginalScene, View Layer | Updating Lights | Importance map
+Fra:43 Mem:209.27M (Peak 497.24M) | Time:00:00.33 | Mem:195.92M, Peak:355.89M | OriginalScene, View Layer | Updating Lights | Computing distribution
+Fra:43 Mem:209.27M (Peak 497.24M) | Time:00:00.33 | Mem:195.92M, Peak:355.89M | OriginalScene, View Layer | Updating Integrator
+Fra:43 Mem:210.27M (Peak 497.24M) | Time:00:00.33 | Mem:196.92M, Peak:355.89M | OriginalScene, View Layer | Updating Film
+Fra:43 Mem:210.27M (Peak 497.24M) | Time:00:00.33 | Mem:196.84M, Peak:355.89M | OriginalScene, View Layer | Updating Lookup Tables
+Fra:43 Mem:210.27M (Peak 497.24M) | Time:00:00.33 | Mem:196.93M, Peak:355.89M | OriginalScene, View Layer | Updating Baking
+Fra:43 Mem:210.27M (Peak 497.24M) | Time:00:00.33 | Mem:196.93M, Peak:355.89M | OriginalScene, View Layer | Updating Device | Writing constant memory
+Fra:43 Mem:210.28M (Peak 497.24M) | Time:00:00.33 | Mem:196.93M, Peak:355.89M | OriginalScene, View Layer | Sample 0/26
+Fra:43 Mem:215.63M (Peak 497.24M) | Time:00:00.39 | Remaining:00:01.35 | Mem:202.23M, Peak:355.89M | OriginalScene, View Layer | Sample 1/26
+Fra:43 Mem:220.93M (Peak 497.24M) | Time:00:01.60 | Mem:202.23M, Peak:355.89M | OriginalScene, View Layer | Sample 26/26
+Fra:43 Mem:220.93M (Peak 497.24M) | Time:00:01.60 | Mem:202.23M, Peak:355.89M | OriginalScene, View Layer | Finished
+Saved: 'dataWBoardColors1/images/5_board205_12_2023-10-51-36.png'
+Time: 00:01.63 (Saving: 00:00.02)
